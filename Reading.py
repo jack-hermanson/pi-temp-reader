@@ -1,6 +1,8 @@
 from datetime import datetime
+from dataclasses import dataclass
 
 
+@dataclass()
 class Reading:
     """
     A simple object containing a temperature, humidity, and the current time.
@@ -8,22 +10,7 @@ class Reading:
 
     temperature: float
     humidity: float
-    generated: datetime
-
-    def __init__(
-            self,
-            temperature: float,
-            humidity: float,
-    ):
-        """
-        Constructor.
-
-        :param temperature: The temperature in degrees Fahrenheit read in by the DHT22.
-        :param humidity: The humidity (as a percentage) read in by the DHT22.
-        """
-        self.temperature = temperature
-        self.humidity = humidity
-        self.generated = datetime.now()
+    generated: datetime = datetime.now()
 
     def __dict__(self):
         """
