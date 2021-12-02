@@ -7,6 +7,10 @@ def convert_temp(degrees_celsius: float) -> float:
     return degrees_celsius * (9/5) + 32
 
 
+def convert_humidity(raw_humidity: float) -> float:
+    return raw_humidity * 0.01
+
+
 def wait() -> None:
     """
     Just hang out for a bit.

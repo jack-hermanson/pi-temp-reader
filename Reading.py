@@ -23,3 +23,9 @@ class Reading:
             "humidity": self.humidity,
             "generated": self.generated.utcnow().isoformat()
         }
+
+    def log(self):
+        """
+        Print to the console.
+        """
+        print(f"[{self.generated}] {self.temperature}f, {self.humidity}%")
