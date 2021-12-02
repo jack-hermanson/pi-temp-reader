@@ -22,4 +22,6 @@ class HttpRequest:
                                  headers=self.headers,
                                  data=self.reading.__dict__())
         error = response.status_code != 200
-        print(f"Server response: {response.status_code}", file=sys.stderr if error else sys.stdout)
+        if error:
+            print(response.request.headers)
+            print(response.request.body)
