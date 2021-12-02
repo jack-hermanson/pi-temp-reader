@@ -28,4 +28,4 @@ class Reading:
         """
         Print to the console.
         """
-        print(f"[{self.generated}] {self.temperature}f, {self.humidity}%")
+        print(f"[{self.generated}] {self.temperature}f, {self.humidity}h")
