@@ -3,6 +3,7 @@ from Constants import API_KEY
 from Reading import Reading
 import requests
 import os
+import sys
 
 
 @dataclass()
@@ -17,6 +18,8 @@ class HttpRequest:
         if not self.reading:
             raise TypeError("Reading cannot be None")
 
-        requests.post("https://cs370-temp-reader.herokuapp.com/api/measurements",
-                      headers=self.headers,
-                      data=self.reading.__dict__())
+        response = requests.post("https://cs370-temp-reader.herokuapp.com/api/measurements",
+                                 headers=self.headers,
+                                 data=self.reading.__dict__())
+        error = response.status_code != 200
+        print(f"Server response: {response.status_code}", file=sys.stderr if error else sys.stdout)

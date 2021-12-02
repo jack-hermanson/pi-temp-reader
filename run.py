@@ -21,7 +21,7 @@ while True:
         reading.log()
 
         request = HttpRequest(reading)
-        request.post()
+        response = request.post()
 
         HelperFunctions.wait()
     else:
