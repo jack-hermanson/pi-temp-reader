@@ -20,7 +20,7 @@ class HttpRequest:
                                      "Authentication": api_key
                                  },
                                  data=self.reading.__dict__())
-        error = response.status_code > 200
+        error = response.status_code != 201
         if error:
             print(response.status_code)
             print(response.request.headers)
